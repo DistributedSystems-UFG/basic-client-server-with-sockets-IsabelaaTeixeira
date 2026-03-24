@@ -68,6 +68,12 @@ Com base no exemplo fornecido em aula (slide 5), faça o seguinte:
 - permita que o cliente chame mais de uma funcionalidade diferente no servidor a cada requisição.
 
 A minha ideia foi transformar o servidor em um **Mini Kit de Forense Digital e Segurança**, de forma que teremos 3 funcionalidades: 
-- **`analise_entropia`**: Calcula a entropia de Shannon de um texto (muito usado em forense para descobrir se um dado está criptografado ou compactado).
-- **`extrair_ips`**: Vasculha um texto de log e extrai todos os endereços de IP suspeitos usando Regex.
-- **`cifra_xor`**: Aplica uma operação bit a bit (XOR) com uma chave para ofuscar ou desofuscar uma string.
+- **`analise_entropia`**: Calcula a entropia de Shannon de um texto (muito usado em forense para descobrir se um dado está criptografado ou compactado). Usando a biblioteca `math`, essa função exige a iteração sobre os caracteres, cálculo de probabilidades e aplicação de logaritmos na base 2 para determinar o nível de aleatoriedade dos dados.
+- **`extrair_ips`**: Vasculha um texto de log e extrai todos os endereços de IP suspeitos usando Regex. Utiliza expressões regulares (biblioteca `re`) para vasculhar textos longos e desestruturados (como registros de logs) e extrair cirurgicamente apenas os padrões válidos de endereços IPv4.
+- **`cifra_xor`**: Aplica uma operação bit a bit (XOR) com uma chave para ofuscar ou desofuscar uma string. Executa uma operação matemática de baixo nível (bit a bit). Utiliza o operador lógico XOR (`^`) em conjunto com uma chave numérica fornecida pelo cliente para ofuscar ou desofuscar uma mensagem.
+
+Para isso, transformei os arquivos server.py e client.py. Depois de atualiza-los fazendo um novo git clone, basta refazer os passos mostrados em verificando comunicação:
+
+![Logs do Servidor com JSON](img/Pasted%20image%2020260323212827.png)
+
+![Resultados do Cliente com JSON](img/Pasted%20image%2020260323212546.png)
