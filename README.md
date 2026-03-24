@@ -77,3 +77,6 @@ Para isso, transformei os arquivos server.py e client.py. Depois de atualiza-los
 ![Logs do Servidor com JSON](img/Pasted%20image%2020260323212827.png)
 
 ![Resultados do Cliente com JSON](img/Pasted%20image%2020260323212546.png)
+
+
+`Com isso, cada funcionalidade acrescenta complexidade ao processamento da requisição e ao solicitar cada requisição três funcionalidades diferentes são chamadas no servidor.`
